@@ -11,25 +11,10 @@ describe './bin/move executing a CLI Application' do
     expect(board).to eq([" ", " ", " ", " ", " ", " ", " ", " ", " "])
   end
 
-  it 'prints "Welcome to Tic Tac Toe!"' do
-    allow($stdout).to receive(:puts)
-    allow(self).to receive(:gets).and_return("1")
 
-    expect($stdout).to receive(:puts).with("Welcome to Tic Tac Toe!"), "Make sure `bin/move` has code that can output 'Welcome to Tic Tac Toe!' exactly."
-
-    run_file("./bin/move")
-  end
-
-  it 'asks the user for input' do
-    allow($stdout).to receive(:puts)
-
-    expect(self).to receive(:gets).and_return("1"), "Make sure `bin/move` is calling `gets` at some point for user input."
-
-    run_file("./bin/move")
-  end
 
   it 'calls move passing the user input' do
-    
+
     RSpec::Matchers.define :user_input do |x|
       match { |actual| actual == '1' || actual == 1 }
     end
@@ -42,30 +27,5 @@ describe './bin/move executing a CLI Application' do
     run_file("./bin/move")
   end
 
-  it 'move modifies the board correctly' do
-    allow($stdout).to receive(:puts)
 
-    allow(self).to receive(:gets).and_return('1')
-    board = get_variable_from_file("./bin/move", "board")
-
-    expect(board).to eq(["X", " ", " ", " ", " ", " ", " ", " ", " "])
-  end
-
-  it 'calls display_board passing the modified board' do
-    allow($stdout).to receive(:puts)
-
-    allow(self).to receive(:gets).and_return('1')
-    allow(self).to receive(:display_board)
-    expect(self).to receive(:display_board).with(["X", " ", " ", " ", " ", " ", " ", " ", " "]).at_least(:once)
-
-    run_file("./bin/move")
-  end
-
-  it 'prints the board with a move to the top left' do
-    expect(self).to receive(:gets).and_return('1')
-
-    output = capture_puts{ run_file("./bin/move") }
-
-    expect(output).to include(" X |   |   ")
-  end
 end
