@@ -5,5 +5,8 @@ def display_board(board)
   puts "-----------"
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
-
-# code your move method here!
+def move(board,postion,u="X")
+postion = postion -1
+board[postion]= u
+display_board(board)
+end
