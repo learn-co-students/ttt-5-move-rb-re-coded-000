@@ -1,5 +1,11 @@
-#!/usr/bin/env ruby
+puts "Welcom to Tic Tac Toe!"
 
 require_relative '../lib/move.rb'
 
-# Code your CLI Here
+def display_board(board)
+  puts "  #{board[0]} |#{board[1]} | #{board[2]} "
+  puts "-----------"
+  puts "  #{board[3]} | #{board[4]} | #{board[5]} "
+  puts "-----------"
+  puts "  #{board[6]} | #{board[7]} | #{board[8]} "
+end
