@@ -5,5 +5,10 @@ def display_board(board)
   puts "-----------"
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
+def move(board,index,value ="X")
+  index = index.to_i
+  index = index - 1
+  board[index]= value
+end
 
 # code your move method here!
