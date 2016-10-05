@@ -11,8 +11,4 @@ end
 def move(board, location, value="X")
   index=input_to_index(location)
   board[index]=value
-  #display_board(board)
-
 end
-
-# code your move method here!
