@@ -6,4 +6,12 @@ def display_board(board)
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
 
+def input_to_index(move)
+  move.to_i
+end
+
+def move(board, idx, move = 'X')
+  board[idx-1] = move
+  board
+end
 # code your move method here!
